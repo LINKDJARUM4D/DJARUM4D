@@ -2,8 +2,8 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>DJARUM4D</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+  <title>DJARUM4D Mobile</title>
 
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@600;700&display=swap');
@@ -13,19 +13,27 @@
       padding: 0;
       box-sizing: border-box;
       font-family: "Fredoka", sans-serif;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    html,
+    body {
+      width: 100%;
+      min-height: 100%;
+      overflow-x: hidden;
     }
 
     body {
       min-height: 100vh;
       background:
-        linear-gradient(rgba(0, 0, 0, .35), rgba(0, 0, 0, .65)),
-        url("https://i.postimg.cc/SskbZpgK/image-(1).png") center center / cover no-repeat fixed;
-      overflow-x: hidden;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+        linear-gradient(rgba(0, 0, 0, .35), rgba(0, 0, 0, .78)),
+        url("https://i.postimg.cc/SskbZpgK/image-(1).png") center top / cover no-repeat fixed;
       color: #fff;
-      padding: 25px 0;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      padding: 14px 10px 30px;
+      position: relative;
     }
 
     body::before {
@@ -33,22 +41,9 @@
       position: fixed;
       inset: 0;
       background:
-        radial-gradient(circle at 50% 50%, rgba(0,255,230,.16), transparent 28%),
-        linear-gradient(90deg, rgba(0,255,255,.08) 1px, transparent 1px),
-        linear-gradient(180deg, rgba(255,255,255,.05) 1px, transparent 1px);
-      background-size: 100% 100%, 80px 80px, 80px 80px;
-      pointer-events: none;
-      z-index: 0;
-    }
-
-    body::after {
-      content: "";
-      position: fixed;
-      inset: 0;
-      background:
-        radial-gradient(circle at 20% 20%, rgba(0,255,255,.18), transparent 22%),
-        radial-gradient(circle at 80% 20%, rgba(0,255,255,.14), transparent 25%),
-        radial-gradient(circle at 50% 90%, rgba(0,255,255,.20), transparent 35%);
+        radial-gradient(circle at 50% 15%, rgba(0,255,255,.22), transparent 28%),
+        radial-gradient(circle at 15% 80%, rgba(0,255,255,.12), transparent 28%),
+        radial-gradient(circle at 90% 80%, rgba(0,255,255,.14), transparent 30%);
       pointer-events: none;
       z-index: 0;
     }
@@ -56,18 +51,19 @@
     .panel {
       position: relative;
       z-index: 2;
-      width: 430px;
-      min-height: 650px;
-      padding: 38px 30px 22px;
-      border-radius: 34px;
+      width: 100%;
+      max-width: 430px;
+      min-height: auto;
+      padding: 24px 16px 70px;
+      border-radius: 24px;
       background:
-        linear-gradient(180deg, rgba(0, 105, 106, .74), rgba(5, 18, 22, .88));
+        linear-gradient(180deg, rgba(0, 115, 118, .82), rgba(4, 18, 24, .94));
       border: 1px solid rgba(0,255,255,.38);
       box-shadow:
-        0 0 35px rgba(0,255,255,.55),
-        0 0 90px rgba(0,255,255,.20),
-        inset 0 0 45px rgba(0,255,255,.10);
-      backdrop-filter: blur(14px);
+        0 0 22px rgba(0,255,255,.48),
+        0 0 55px rgba(0,255,255,.16),
+        inset 0 0 28px rgba(0,255,255,.10);
+      backdrop-filter: blur(10px);
       overflow: hidden;
     }
 
@@ -75,149 +71,169 @@
       content: "";
       position: absolute;
       inset: 0;
-      background:
-        linear-gradient(120deg, transparent, rgba(255,255,255,.13), transparent);
-      transform: translateX(-120%);
+      background: linear-gradient(120deg, transparent, rgba(255,255,255,.13), transparent);
+      transform: translateX(-130%);
       animation: shine 4s infinite;
       pointer-events: none;
     }
 
     @keyframes shine {
-      0% { transform: translateX(-120%); }
-      45% { transform: translateX(130%); }
-      100% { transform: translateX(130%); }
+      0% {
+        transform: translateX(-130%);
+      }
+
+      45% {
+        transform: translateX(130%);
+      }
+
+      100% {
+        transform: translateX(130%);
+      }
     }
 
     .badge {
-      width: max-content;
-      margin: 0 auto 14px;
-      padding: 11px 30px;
+      position: relative;
+      z-index: 3;
+      width: fit-content;
+      margin: 0 auto 12px;
+      padding: 10px 24px;
       border-radius: 999px;
       color: #02262a;
-      font-size: 14px;
+      font-size: 13px;
       font-weight: 700;
-      letter-spacing: 6px;
+      letter-spacing: 4px;
       background: linear-gradient(180deg, #ffffff, #5fffff 60%, #08c9be);
       box-shadow:
-        0 0 18px rgba(0,255,255,.95),
-        0 0 38px rgba(0,255,255,.45),
+        0 0 14px rgba(0,255,255,.95),
+        0 0 28px rgba(0,255,255,.45),
         inset 0 0 8px rgba(255,255,255,.85);
       text-shadow: 0 1px 0 rgba(255,255,255,.8);
     }
 
-    /* TEKS BERJALAN */
     .running-box {
+      position: relative;
+      z-index: 3;
       width: 100%;
-      height: 42px;
-      margin: 0 auto 28px;
+      height: 38px;
+      margin: 0 auto 20px;
       border-radius: 999px;
       overflow: hidden;
       display: flex;
       align-items: center;
-      background: linear-gradient(90deg, rgba(0, 20, 24, .75), rgba(0, 255, 255, .18), rgba(0, 20, 24, .75));
-      border: 1px solid rgba(0,255,255,.38);
+      background: linear-gradient(
+        90deg,
+        rgba(0, 20, 24, .78),
+        rgba(0, 255, 255, .20),
+        rgba(0, 20, 24, .78)
+      );
+      border: 1px solid rgba(0,255,255,.36);
       box-shadow:
-        inset 0 0 16px rgba(0,255,255,.18),
-        0 0 18px rgba(0,255,255,.30);
+        inset 0 0 14px rgba(0,255,255,.18),
+        0 0 16px rgba(0,255,255,.28);
     }
 
     .running-text {
       display: inline-block;
       white-space: nowrap;
       padding-left: 100%;
-      font-size: 14px;
+      font-size: 12px;
       font-weight: 700;
-      letter-spacing: .8px;
-      color: #ffffff;
+      letter-spacing: .5px;
+      color: #fff;
       text-shadow:
-        0 0 8px rgba(0,255,255,.95),
-        0 0 14px rgba(255,255,255,.65),
-        0 2px 5px rgba(0,0,0,.75);
-      animation: textRun 13s linear infinite;
+        0 0 7px rgba(0,255,255,.95),
+        0 2px 4px rgba(0,0,0,.8);
+      animation: textRun 12s linear infinite;
     }
 
     @keyframes textRun {
       0% {
         transform: translateX(0);
       }
+
       100% {
         transform: translateX(-100%);
       }
     }
 
     .menu {
+      position: relative;
+      z-index: 3;
       display: flex;
       flex-direction: column;
-      gap: 15px;
+      gap: 11px;
     }
 
     .menu a {
       position: relative;
-      min-height: 72px;
-      padding: 0 22px 0 18px;
-      border-radius: 18px;
+      width: 100%;
+      min-height: 62px;
+      padding: 0 14px;
+      border-radius: 17px;
       display: flex;
       align-items: center;
-      gap: 16px;
+      gap: 12px;
       color: #fff;
       text-decoration: none;
-      font-size: 17px;
+      font-size: 15px;
       font-weight: 700;
-      letter-spacing: .7px;
+      letter-spacing: .6px;
       text-transform: uppercase;
       border: 1px solid rgba(255,255,255,.22);
       box-shadow:
-        inset 0 0 18px rgba(255,255,255,.08),
-        0 8px 18px rgba(0,0,0,.35);
+        inset 0 0 16px rgba(255,255,255,.08),
+        0 7px 15px rgba(0,0,0,.32);
       overflow: hidden;
-      transition: .25s ease;
+      transition: .22s ease;
+      touch-action: manipulation;
     }
 
     .menu a::before {
       content: "";
       position: absolute;
       inset: 0;
-      background: linear-gradient(90deg, transparent, rgba(255,255,255,.27), transparent);
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,.25), transparent);
       transform: translateX(-120%);
       transition: .45s ease;
     }
 
-    .menu a:hover {
-      transform: translateY(-4px) scale(1.02);
-      box-shadow:
-        0 0 22px rgba(0,255,255,.55),
-        inset 0 0 24px rgba(255,255,255,.15);
-    }
-
-    .menu a:hover::before {
+    .menu a:hover::before,
+    .menu a:active::before {
       transform: translateX(120%);
     }
 
+    .menu a:active {
+      transform: scale(.96);
+      box-shadow:
+        0 0 18px rgba(0,255,255,.55),
+        inset 0 0 22px rgba(255,255,255,.14);
+    }
+
     .icon {
-      width: 42px;
-      height: 42px;
-      border-radius: 14px;
+      width: 38px;
+      height: 38px;
+      border-radius: 13px;
       background: rgba(255,255,255,.24);
       display: grid;
       place-items: center;
-      font-size: 22px;
+      font-size: 20px;
       box-shadow:
-        inset 0 0 10px rgba(0,0,0,.25),
-        0 0 14px rgba(0,255,255,.30);
+        inset 0 0 9px rgba(0,0,0,.25),
+        0 0 12px rgba(0,255,255,.30);
       flex: 0 0 auto;
     }
 
     .text {
       flex: 1;
       text-shadow:
-        0 2px 6px rgba(0,0,0,.55),
-        0 0 10px rgba(0,255,255,.35);
+        0 2px 5px rgba(0,0,0,.60),
+        0 0 9px rgba(0,255,255,.35);
     }
 
     .arrow {
-      font-size: 28px;
+      font-size: 24px;
       opacity: .95;
-      text-shadow: 0 0 12px rgba(255,255,255,.85);
+      text-shadow: 0 0 10px rgba(255,255,255,.85);
     }
 
     .vip {
@@ -249,66 +265,103 @@
     }
 
     .footer-line {
-      margin: 28px 0 20px;
+      position: relative;
+      z-index: 3;
+      margin: 22px 0 14px;
       height: 1px;
       background: linear-gradient(90deg, transparent, rgba(255,255,255,.35), transparent);
     }
 
     .footer {
+      position: relative;
+      z-index: 3;
       text-align: center;
-      letter-spacing: 12px;
-      font-size: 13px;
+      letter-spacing: 8px;
+      font-size: 12px;
       color: rgba(255,255,255,.82);
-      padding-left: 12px;
+      padding-left: 8px;
       text-shadow: 0 0 12px rgba(0,255,255,.75);
     }
 
-    @media (max-width: 520px) {
+    /* GIF ANIMASI DI DALAM PANEL KIRI BAWAH */
+    .gif-dalam-panel {
+      position: absolute;
+      left: 14px;
+      bottom: 12px;
+      width: 62px;
+      height: auto;
+      z-index: 4;
+      pointer-events: none;
+      filter:
+        drop-shadow(0 0 9px rgba(0,255,255,.95))
+        drop-shadow(0 0 18px rgba(255,255,255,.35));
+      animation: gifFloat 2.8s ease-in-out infinite;
+    }
+
+    @keyframes gifFloat {
+      0%, 100% {
+        transform: translateY(0) scale(1);
+      }
+
+      50% {
+        transform: translateY(-6px) scale(1.04);
+      }
+    }
+
+    @media (max-width: 360px) {
       body {
-        align-items: flex-start;
-        padding-top: 20px;
-        background-position: center top;
+        padding: 10px 8px 25px;
       }
 
       .panel {
-        width: calc(100% - 26px);
-        padding: 30px 20px 20px;
-        border-radius: 26px;
+        padding: 20px 13px 65px;
+        border-radius: 22px;
       }
 
       .badge {
-        margin-bottom: 12px;
-        font-size: 13px;
-        letter-spacing: 5px;
+        font-size: 12px;
+        letter-spacing: 3px;
+        padding: 9px 20px;
       }
 
       .running-box {
-        height: 38px;
-        margin-bottom: 24px;
+        height: 35px;
+        margin-bottom: 16px;
       }
 
       .running-text {
-        font-size: 12px;
+        font-size: 11px;
+      }
+
+      .menu {
+        gap: 9px;
       }
 
       .menu a {
-        min-height: 64px;
-        font-size: 15px;
-        gap: 12px;
+        min-height: 58px;
+        font-size: 14px;
+        border-radius: 15px;
+        padding: 0 12px;
       }
 
       .icon {
-        width: 38px;
-        height: 38px;
-        font-size: 20px;
+        width: 35px;
+        height: 35px;
+        font-size: 18px;
       }
 
       .arrow {
-        font-size: 24px;
+        font-size: 22px;
       }
 
       .footer {
-        letter-spacing: 8px;
+        letter-spacing: 7px;
+      }
+
+      .gif-dalam-panel {
+        width: 54px;
+        left: 12px;
+        bottom: 10px;
       }
     }
   </style>
@@ -373,14 +426,14 @@
 
     <div class="footer-line"></div>
     <div class="footer">DJARUM4D</div>
+
+    <!-- GIF kecil di dalam panel kiri bawah -->
+    <img
+      class="gif-dalam-panel"
+      src="https://media.baamboozle.com/uploads/images/176438/e3a3bb40-aa26-400c-8f7c-a9ecedfa17f1.gif"
+      alt="GIF Animasi"
+    />
   </main>
 
 </body>
 </html>
-<!DOCTYPE html>
-<html lang="id">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GIF Viewer</title>
-    <style>
